@@ -20,10 +20,10 @@ public class EnemyMovement : MonoBehaviour
         transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
     }
 
-    //when enemies hit the boundary, they go to the opposite horizontal direction
+    //when enemies hit the boundary or other enemies, they go to the opposite horizontal direction
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Boundary") {
+        if(collision.gameObject.tag == "Boundary" || collision.gameObject.tag == "Enemy") {
             transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
 
             moveSpeed *= -1;
