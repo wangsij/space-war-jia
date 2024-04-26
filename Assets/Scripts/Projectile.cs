@@ -10,10 +10,14 @@ public class Projectile : MonoBehaviour
     //the game object for the explosion animation
     public GameObject explosionPrefab;
 
+    //a private point manager to keep track of the points
+    private PointManager pointManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //find the point manager
+        pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
     }
 
     // Update is called once per frame
@@ -27,11 +31,12 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        //if hit projectile to enemy, play explosion, destroy enemy, and destroy the projectile
+        //if a projectile is hit to enemy, play explosion, destroy enemy, update points, and destroy the projectile
         if(collision.gameObject.tag == "Enemy")
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
+            pointManager.UpdateScore(50);
             Destroy(gameObject);
         }
 
