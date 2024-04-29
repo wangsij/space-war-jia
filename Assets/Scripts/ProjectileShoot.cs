@@ -19,7 +19,7 @@ public class ProjectileShoot : MonoBehaviour
         if(Input.GetButtonDown("Fire1")) {
         
             Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-
+            Music.instance.playShooting();
         }
 
     }

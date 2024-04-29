@@ -34,6 +34,9 @@ public class PlayerLives : MonoBehaviour
         //in the situation when player ship collides with enemy
         if(collision.collider.gameObject.tag == "Enemy") {
 
+            //play the explosion music
+            Music.instance.playExplosion();
+
             //player loses one life
             Destroy(collision.collider.gameObject);
             lives -= 1;

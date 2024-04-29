@@ -37,6 +37,7 @@ public class Projectile : MonoBehaviour
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
             pointManager.UpdateScore(50);
+            Music.instance.playExplosion();
             Destroy(gameObject);
         }
 
