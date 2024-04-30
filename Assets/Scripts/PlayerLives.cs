@@ -15,6 +15,8 @@ public class PlayerLives : MonoBehaviour
     //the explosion prefab
     public GameObject explosionPrefab;
 
+    public GameObject losePanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +61,7 @@ public class PlayerLives : MonoBehaviour
 
             //when lives run out, destroy the player ship
             if(lives <= 0){
+                losePanel.SetActive(true);
                 Destroy(gameObject);
             }
         
