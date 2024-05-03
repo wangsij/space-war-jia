@@ -25,14 +25,11 @@ public class EnemyMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Boundary") {
             transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
-
             moveSpeed *= -1;
         }
 
         if (collision.gameObject.tag == "Enemy")
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-
             moveSpeed *= -1;
         }
     }
